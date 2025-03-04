@@ -8,7 +8,6 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:grng-app": "node dist/grng-app/server/server.mjs",
-
     "lib:build": "ng build grng",
     "lib:watch": "ng build grng --watch",
     "lib:publish": "npm run lib:build && cd dist/grng && npm pack && npm publish"
@@ -25,6 +24,10 @@
     "@angular/platform-server": "^19.0.0",
     "@angular/router": "^19.0.0",
     "@angular/ssr": "^19.0.0",
+    "@ng-doc/app": "19.1.0",
+    "@ng-doc/builder": "19.1.0",
+    "@ng-doc/core": "19.1.0",
+    "@ng-doc/ui-kit": "19.1.0",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

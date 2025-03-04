@@ -6,6 +6,12 @@
     "outDir": "./dist/out-tsc",
     "strict": true,
     "paths": {
+      "@ng-doc/generated": [
+        "./ng-doc/grng-app/index.ts"
+      ],
+      "@ng-doc/generated/*": [
+        "./ng-doc/grng-app/*"
+      ],
       "grng": [
         "./dist/grng"
       ]
