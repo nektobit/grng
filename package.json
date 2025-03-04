@@ -1,42 +1,49 @@
 {
-  "name": "grng",
-  "version": "0.1.0",
-  "description": "Lightweight GraphQL client for Angular 19 using resource API.",
-  "author": "nektobit",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/nektobit/grng.git"
-  },
-  "keywords": [
-    "angular",
-    "graphql",
-    "resource",
-    "signals",
-    "rxjs",
-    "client",
-    "grunge"
-  ],
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "exports": {
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.js"
-  },
+  "name": "grng-app",
+  "version": "0.0.0",
   "scripts": {
-    "build": "tsc",
-    "test": "echo \"No tests yet\"",
-    "lint": "eslint src --ext .ts"
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "serve:ssr:grng-app": "node dist/grng-app/server/server.mjs",
+
+    "lib:build": "ng build grng",
+    "lib:watch": "ng build grng --watch",
+    "lib:publish": "npm run lib:build && cd dist/grng && npm pack && npm publish"
   },
+  "private": true,
   "dependencies": {
+    "@angular/animations": "^19.0.0",
+    "@angular/common": "^19.0.0",
+    "@angular/compiler": "^19.0.0",
     "@angular/core": "^19.0.0",
-    "graphql": "^16.0.0",
-    "rxjs": "^7.8.0"
+    "@angular/forms": "^19.0.0",
+    "@angular/platform-browser": "^19.0.0",
+    "@angular/platform-browser-dynamic": "^19.0.0",
+    "@angular/platform-server": "^19.0.0",
+    "@angular/router": "^19.0.0",
+    "@angular/ssr": "^19.0.0",
+    "express": "^4.18.2",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^19.0.0",
     "@angular/cli": "^19.0.0",
     "@angular/compiler-cli": "^19.0.0",
-    "typescript": "^5.2.0"
+    "@types/express": "^4.17.17",
+    "@types/jasmine": "~5.1.0",
+    "@types/node": "^18.18.0",
+    "jasmine-core": "~5.4.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-packagr": "^19.2.0",
+    "typescript": "~5.6.2"
   }
 }
