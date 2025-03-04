@@ -1,0 +1,43 @@
+{
+  "name": "grng",
+  "version": "0.1.0",
+  "description": "Lightweight GraphQL client for Angular 19 using resource API.",
+  "author": "nektobit",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nektobit/grng.git"
+  },
+  "keywords": [
+    "angular",
+    "graphql",
+    "resource",
+    "signals",
+    "rxjs",
+    "client",
+    "grunge"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "ng build grng",
+    "test": "ng test",
+    "lint": "ng lint",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@angular/core": "^19.0.0",
+    "graphql": "^16.0.0",
+    "rxjs": "^7.8.0"
+  },
+  "devDependencies": {
+    "@angular/cli": "^19.0.0",
+    "@angular/compiler-cli": "^19.0.0",
+    "typescript": "^5.2.0"
+  }
+}
