@@ -1,6 +1,6 @@
 ![smile](https://raw.githubusercontent.com/nektobit/grng/refs/heads/master/banner.webp)
 
-# GRNG
+# GRNG - in active development. Not ready for production.
 
 ## Overview
 **grng** - Pronounced like "grunge". This is a lightweight, Angular-native GraphQL client designed to seamlessly integrate with Angular 19’s `resource` API. It provides a minimalistic and efficient way to manage GraphQL queries, mutations, and subscriptions using Angular’s reactivity model. The goal is to reduce boilerplate, enhance developer experience, and ensure optimal performance with Signals and RxJS.
