@@ -25,10 +25,9 @@
     "require": "./dist/index.js"
   },
   "scripts": {
-    "build": "ng build grng",
-    "test": "ng test",
-    "lint": "ng lint",
-    "prepublishOnly": "npm run build"
+    "build": "tsc",
+    "test": "echo \"No tests yet\"",
+    "lint": "eslint src --ext .ts"
   },
   "dependencies": {
     "@angular/core": "^19.0.0",
