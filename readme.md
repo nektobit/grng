@@ -1,4 +1,4 @@
-![smile](https://raw.githubusercontent.com/nektobit/grng/refs/heads/main/banner.webp)
+![smile](https://raw.githubusercontent.com/nektobit/grng/refs/heads/master/banner.webp)
 
 # GRNG
 
