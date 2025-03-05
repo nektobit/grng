@@ -1,4 +1,4 @@
-![smile](https://raw.githubusercontent.com/nektobit/grng/refs/heads/master/banner.webp)
+![smile](https://raw.githubusercontent.com/nektobit/grng/refs/heads/master/projects/grng/banner.webp)
 
 # GRNG - in active development. Not ready for production.
 
