@@ -1,61 +1,128 @@
-{% include projects/grng/readme.md %}
+![smile](https://raw.githubusercontent.com/nektobit/grng/refs/heads/master/projects/grng/banner.webp)
 
-# GrngApp
+# GRNG - in active development. Not ready for production.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.0.
+## Overview
+**grng** - Pronounced like "grunge". This is a lightweight, Angular-native GraphQL client designed to seamlessly integrate with Angular 19’s `resource` API. It provides a minimalistic and efficient way to manage GraphQL queries, mutations, and subscriptions using Angular’s reactivity model. The goal is to reduce boilerplate, enhance developer experience, and ensure optimal performance with Signals and RxJS.
 
-## Development server
+## Contacts
+[Telegram](https://t.me/grunge_js)
 
-To start a local development server, run:
+## Features
 
-```bash
-ng serve
+### 🚀 **Angular 19 `resource` Integration**
+- Native support for `resource()`, leveraging Signals for reactivity.
+- Declarative API that simplifies GraphQL operations.
+
+### 🔥 **Minimal Boilerplate, Maximum Power**
+- Short and intuitive function names: `queryResource`, `mutateResource`, `query$`, and `mutate$`.
+- No unnecessary decorators or complex configurations.
+
+### 🔄 **Dual API: Signals & RxJS**
+- **Signal-based API**: Uses `resource()` for automatic reactivity.
+- **RxJS-based API**: Returns `Observable` for flexibility in streaming data.
+
+### 📦 **Built-in Caching and State Management**
+- Optional caching mechanism with auto-invalidation.
+- Fine-grained control over fetch policies (`network-only`, `cache-first`, etc.).
+
+### 🔑 **First-class TypeScript Support**
+- Strongly typed queries and mutations.
+- Seamless integration with GraphQL Codegen.
+
+### 📡 **WebSocket Support for Subscriptions** *(Planned Feature)*
+- `subResource` and `sub$` for GraphQL subscriptions.
+- Real-time updates with WebSockets.
+
+### 🌍 **SSR and Angular Universal Friendly**
+- Optimized for server-side rendering with Angular Universal.
+- Automatic state hydration on the client.
+
+### 🏗 **Flexible Transport Layer**
+- Works with `fetch()`, `HttpClient`, or custom transport strategies.
+- Easy authentication handling via interceptors or headers.
+
+## Installation
+
+```sh
+npm install grng
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Usage
 
-## Code scaffolding
+### **Query with `resource`**
+```typescript
+import { queryResource } from 'grng';
+import { signal, Injectable } from '@angular/core';
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+@Injectable({ providedIn: 'root' })
+export class UserService {
+  getUser = queryResource<{ user: User }>(gql`
+    query GetUser($id: ID!) {
+      user(id: $id) {
+        id
+        name
+      }
+    }
+  `, { id: signal('123') });
+}
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### **Mutation with `resource`**
+```typescript
+import { mutateResource } from 'grng';
 
-```bash
-ng generate --help
+@Injectable({ providedIn: 'root' })
+export class UserService {
+  updateUser = mutateResource<{ updateUser: User }>(gql`
+    mutation UpdateUser($id: ID!, $input: UserInput!) {
+      updateUser(id: $id, input: $input) {
+        id
+        name
+      }
+    }
+  `);
+}
 ```
 
-## Building
+### **RxJS API**
+#### **Query with `Observable`**
+```typescript
+import { query$ } from 'grng';
 
-To build the project run:
-
-```bash
-ng build
+@Injectable({ providedIn: 'root' })
+export class UserService {
+  getUser$ = query$<{ user: User }>(gql`
+    query GetUser($id: ID!) {
+      user(id: $id) {
+        id
+        name
+      }
+    }
+  `, { id: '123' });
+}
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+#### **Mutation with `Observable`**
+```typescript
+import { mutate$ } from 'grng';
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+@Injectable({ providedIn: 'root' })
+export class UserService {
+  updateUser$ = mutate$<{ updateUser: User }>(gql`
+    mutation UpdateUser($id: ID!, $input: UserInput!) {
+      updateUser(id: $id, input: $input) {
+        id
+        name
+      }
+    }
+  `);
+}
 ```
 
-## Running end-to-end tests
+## Contributing
+We welcome contributions! Feel free to open issues and submit pull requests.
 
-For end-to-end (e2e) testing, run:
+## License
+MIT License
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
